@@ -30,11 +30,14 @@
       function conv1(arr) {
         const results = [];
         for (var i = 0; i < arr.length; i++) {
-          if (arr[i].length == 5) {
+          if (arr[i].length == 62) {
             results.push([
               arr[i][3],
-              arr[i][1] + arr[i][2].slice(1, 5),
-              arr[i][0],
+              arr[i][15] + arr[i][7].slice(0, -3), // P + Hの下3桁消したもの
+              arr[i][18], // S
+              arr[i][11], // L
+              arr[i][24], // Y
+              arr[i][25], // Z
             ]);
           }
         }
