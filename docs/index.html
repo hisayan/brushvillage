@@ -111,14 +111,15 @@
         for (var i = 0; i < files.length; i++) {
           const file = files[i];
 
-          if (("" + file.type).indexOf("text/") == 0) {
+          // Windows Chrome だと、type が、空になるよ
+          // if (("" + file.type).indexOf("text/") == 0) {
             Papa.parse(file, {
               complete: function (results) {
                 console.log("Finished:", results.data);
                 func1(conv1(results.data));
               }
             });
-          }
+          // }
         }
       });
     </script>
