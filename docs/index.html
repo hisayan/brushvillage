@@ -10,6 +10,7 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"
       type="text/javascript"
     ></script>
+    <!-- <script src="https://smtpjs.com/v3/smtp.js"></script> -->
     <style>
       #drop-area {
         width: 200px;
@@ -87,7 +88,29 @@
         // FileSaverのsaveAs関数で、xlsxファイルとしてダウンロード
         // 参照：https://github.com/eligrey/FileSaver.js/
         var now = moment();
-        saveAs(blob, now.format("YYYYMMDDHHmmss") + ".xlsx");
+        var filename = now.format("YYYYMMDDHHmmss") + ".xlsx";
+        saveAs(blob, filename);
+
+        // メールで送るなら
+        // var base64 = XLSX.write(wb, { type: "base64" });
+        // var dataUri =
+        //   "data:" +
+        //   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" +
+        //   ";base64," +
+        //   base64;
+        // Email.send({
+        //   SecureToken: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        //   To: "hoge@example.com",
+        //   From: "hoge@example.com",
+        //   Subject: "This is the subject",
+        //   Body: "And this is the body",
+        //   Attachments: [
+        //     {
+        //       name: filename,
+        //       data: dataUri,
+        //     },
+        //   ],
+        // }).then((message) => alert(message));
       }
     </script>
 
